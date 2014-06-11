@@ -1,0 +1,3 @@
+com.example.xposedsample.hooks.XposedHookZygoteInit
+com.example.xposedsample.hooks.XposedHookLoadPackage
+com.example.xposedsample.hooks.XposedHookInitPackageResources
