@@ -1,28 +1,18 @@
 package com.example.xposedsample.hooks;
 
-import com.example.xposedsample.app.MethodStatistics;
 import com.example.xposedsample.utils.J;
 
 import java.lang.reflect.Method;
 
 import de.robv.android.xposed.XC_MethodHook;
 
-import static de.robv.android.xposed.XposedBridge.log;
-
 public class GeneralMethodHook extends XC_MethodHook {
-    public static final String TAG = GeneralMethodHook.class.getSimpleName();
-
-    private final Class<?> clazz;
-
-    public GeneralMethodHook(Class<?> clazz) {
-        this.clazz = clazz;
-    }
+    protected static final String TAG = GeneralMethodHook.class.getSimpleName();
 
     @Override
     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-        String className = clazz.getSimpleName();
-
         Method method = (Method) param.method;
+        String className = method.getDeclaringClass().getSimpleName();
         String methodName = method.getName();
 
         Class<?>[] paramTypes = method.getParameterTypes();
